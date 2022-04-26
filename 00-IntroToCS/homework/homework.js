@@ -16,7 +16,7 @@ function DecimalABinario(num) {
   let contador = "";
   while(num>0){
     //guarda el resto en contador y lo agrega de izquierda a derecha
-    contador = (num%2) + contador;
+    contador = num%2 + contador;
     //dividimos el numero en 2 y aplicamos floor para obtener su entero
     num = Math.floor(num / 2); 
   }
