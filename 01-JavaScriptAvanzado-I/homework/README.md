@@ -50,7 +50,6 @@ console.log(this.instructor); // undefined, ya que le estoy diciendo que por enc
 
 ```javascript
 var instructor = "Tony";
-console.log("linea 53 "+instructor); //tony
 (function() {
    if(true) {
       var instructor = "Franco";
@@ -82,16 +81,18 @@ console.log(pm); //franco, porque la variable pm que esta dentro del bloque if, 
 4 + 5 + "px" // 9px
 "$" + 4 + 5 // $9
 "4" - 2 //2
-"4px" - 2 //4px2
+"4px" - 2 //nan
 7 / 0 //nan
 {}[0] //[0]
 parseInt("09") //09 number
-5 && 2 //2
-2 && 5 //5
+5 && 2 //2 al ser ambos verdaderos, devuelve el segundo valor
+2 && 5 //5 al ser ambos verdaderos, devuelve el segundo valor
 5 || 0 //5
 0 || 5 //5
 [3]+[3]-[10] //concatena [3]+[3]=33 y resta [10] dando resultado 23
 3>2>1 //false
+//!: Devuelve false si su único operando se puede convertir a true; de lo contrario, devuelve true.
+//Operador lógico NO(!): es negación. Cada vez que colocamos este operador cerca de alguna condición, cambia su valor de verdadero a falso o de lo contrario de falso a verdadero.
 [] == ![] //true
 ```
 
