@@ -10,32 +10,32 @@ Determiná que será impreso en la consola, sin ejecutar el código.
 > Investiga cuál es la diferencia entre declarar una variable con `var` y directamente asignarle un valor.
 
 ```javascript
-x = 1;
-var a = 5;
+x = 1; 
+var a = 5; 
 var b = 10;
 var c = function(a, b, c) {
   var x = 10;
-  console.log(x);
-  console.log(a);
+  console.log("valor de x linea 18 "+x); // 10
+  console.log("valor de a linea 19 "+a); // 8
   var f = function(a, b, c) {
-    b = a;
-    console.log(b);
-    b = c;
+    b = a; // asignamos el valor de a en b 8
+    console.log("valor de b linea 22 "+b); // 8
+    b = c; // asignamos el valor de c en b que es 10
     var x = 5;
   }
   f(a,b,c);
-  console.log(b);
+  console.log("valor de b linea 27 "+b); // 9, ya que imprime dentro de la funcion c y no dentro de la funcion f
 }
-c(8,9,10);
-console.log(b);
-console.log(x);
+c(8,9,10); // asignamos los valor a los parametros a, b, c
+console.log("valor de b linea 30 "+b); // 10
+console.log("valor de x linea 31 "+x); // 1
 ```
 
 ```javascript
-console.log(bar);
-console.log(baz);
-foo();
-function foo() { console.log('Hola!'); }
+console.log(bar); //undefined
+console.log(baz); //2
+foo(); 
+function foo() { console.log('Hola!'); } //Hola!
 var bar = 1;
 baz = 2;
 ```
@@ -45,19 +45,19 @@ var instructor = "Tony";
 if(true) {
     var instructor = "Franco";
 }
-console.log(instructor);
+console.log(this.instructor); // undefined, ya que le estoy diciendo que por encima del global, busque una variable llamada instructor, pero al no existir, su valor es undefined
 ```
 
 ```javascript
 var instructor = "Tony";
-console.log(instructor);
+console.log("linea 53 "+instructor); //tony
 (function() {
    if(true) {
       var instructor = "Franco";
-      console.log(instructor);
+      console.log("linea 57 "+instructor); //franco
    }
 })();
-console.log(instructor);
+console.log("linea 60 "+instructor); //tony
 ```
 
 ```javascript
@@ -66,33 +66,33 @@ let pm = "Franco";
 if (true) {
     var instructor = "The Flash";
     let pm = "Reverse Flash";
-    console.log(instructor);
-    console.log(pm);
+    console.log(instructor); //the flash
+    console.log(pm); //reverse flash
 }
-console.log(instructor);
-console.log(pm);
+console.log(instructor); //the flash
+console.log(pm); //franco, porque la variable pm que esta dentro del bloque if, solo se ejecuta dentro de ese bloque, por lo tanto al imprimir fuera, toma como referencia la variable global let pm="franco";
 ```
 ### Coerción de Datos
 
 ¿Cuál crees que será el resultado de la ejecución de estas operaciones?:
 
 ```javascript
-6 / "3"
-"2" * "3"
-4 + 5 + "px"
-"$" + 4 + 5
-"4" - 2
-"4px" - 2
-7 / 0
-{}[0]
-parseInt("09")
-5 && 2
-2 && 5
-5 || 0
-0 || 5
-[3]+[3]-[10]
-3>2>1
-[] == ![]
+6 / "3" // 2
+"2" * "3" // 6
+4 + 5 + "px" // 9px
+"$" + 4 + 5 // $9
+"4" - 2 //2
+"4px" - 2 //4px2
+7 / 0 //nan
+{}[0] //[0]
+parseInt("09") //09 number
+5 && 2 //2
+2 && 5 //5
+5 || 0 //5
+0 || 5 //5
+[3]+[3]-[10] //concatena [3]+[3]=33 y resta [10] dando resultado 23
+3>2>1 //false
+[] == ![] //true
 ```
 
 > Si te quedó alguna duda repasá con [este artículo](http://javascript.info/tutorial/object-conversion).
@@ -104,8 +104,8 @@ parseInt("09")
 
 ```javascript
 function test() {
-   console.log(a);
-   console.log(foo());
+   console.log(a); //undefined porque al subir la variable a, no sube la asignacion, queda var a;
+   console.log(foo()); //2
 
    var a = 1;
    function foo() {
@@ -129,7 +129,7 @@ function getFood(food) {
     return snack;
 }
 
-getFood(false);
+getFood(false);//no ejecuta nada ya que no estoy pasando nada a consola
 ```
 
 
@@ -149,11 +149,11 @@ var obj = {
    }
 };
 
-console.log(obj.prop.getFullname());
+console.log(obj.prop.getFullname());//aurelio de rosa
 
 var test = obj.prop.getFullname;
 
-console.log(test());
+console.log(test());//undefined
 ```
 
 ### Event loop
@@ -162,10 +162,10 @@ Considerando el siguiente código, ¿Cuál sería el orden en el que se muestra 
 
 ```javascript
 function printing() {
-   console.log(1);
-   setTimeout(function() { console.log(2); }, 1000);
-   setTimeout(function() { console.log(3); }, 0);
-   console.log(4);
+   console.log(1);//1
+   setTimeout(function() { console.log(2); }, 1000); // despues de 1 segundo imprime 2
+   setTimeout(function() { console.log(3); }, 0); // 3
+   console.log(4); // 4
 }
 
 printing();
