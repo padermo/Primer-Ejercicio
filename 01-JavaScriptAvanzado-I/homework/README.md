@@ -79,7 +79,7 @@ console.log(pm); //franco, porque la variable pm que esta dentro del bloque if, 
 6 / "3" // 2
 "2" * "3" // 6
 4 + 5 + "px" // 9px
-"$" + 4 + 5 // $9
+"$" + 4 + 5 // $45
 "4" - 2 //2
 "4px" - 2 //nan
 7 / 0 //nan
