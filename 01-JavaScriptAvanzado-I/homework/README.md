@@ -33,7 +33,7 @@ console.log("valor de x linea 31 "+x); // 1
 
 ```javascript
 console.log(bar); //undefined
-console.log(baz); //2
+console.log(baz); //error porque no es una variable definida en algun tipo
 foo(); 
 function foo() { console.log('Hola!'); } //Hola!
 var bar = 1;
@@ -45,7 +45,7 @@ var instructor = "Tony";
 if(true) {
     var instructor = "Franco";
 }
-console.log(this.instructor); // undefined, ya que le estoy diciendo que por encima del global, busque una variable llamada instructor, pero al no existir, su valor es undefined
+console.log(instructor); // Franco, ya que en el bloque if estoy redeclarando en valor de instructor
 ```
 
 ```javascript
