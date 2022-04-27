@@ -50,7 +50,7 @@ console.log(instructor); // Franco, ya que en el bloque if estoy redeclarando en
 
 ```javascript
 var instructor = "Tony";
-(function() {
+(function() { //esto es una funcion auto-invocada (IIFE - immediately invoked function expression)
    if(true) {
       var instructor = "Franco";
       console.log("linea 57 "+instructor); //franco
@@ -130,7 +130,7 @@ function getFood(food) {
     return snack;
 }
 
-getFood(false);//no ejecuta nada ya que no estoy pasando nada a consola
+getFood(false);//no ejecuta nada ya que estoy diciendo que el if es falso por ende no entra al bloque
 ```
 
 
@@ -154,7 +154,7 @@ console.log(obj.prop.getFullname());//aurelio de rosa
 
 var test = obj.prop.getFullname;
 
-console.log(test());//undefined
+console.log(test());//undefined porque estoy guardando solo la funcion getFullname y cuando la llame al global, no existe una propiedad this.fullname
 ```
 
 ### Event loop
